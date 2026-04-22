@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "董達達短網址轉運站",
   description: "貼入長網址，立即取得短連結與 QR Code",
+  openGraph: {
+    title: "董達達短網址轉運站",
+    description: "貼入長網址，立即取得短連結與 QR Code",
+  },
 };
 
 export default function RootLayout({
