@@ -51,7 +51,7 @@ export default function Home() {
     <main className="min-h-screen bg-gray-950 flex items-center justify-center px-4">
       <div className="w-full max-w-lg space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-white">短網址</h1>
+          <h1 className="text-4xl font-bold text-white">董達達短網址轉運站</h1>
           <p className="text-gray-400">貼入長網址，立即取得短連結與 QR Code</p>
         </div>
 
