@@ -1,26 +1,229 @@
 @import "tailwindcss";
 
+/* =====================================================================
+   董達達 Design System v2 — Neo-cyber
+   Source: reference/colors_and_type.css
+   ===================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Page substrate — deep blue-black */
+  --ink-1000: #04060d;
+  --ink-900: #070a14;
+  --ink-800: #0c1120;
+  --ink-700: #131a2e;
+  --ink-600: #1c2440;
+  --ink-500: #2a3358;
+
+  /* Foreground — cool whites */
+  --chrome-100: #f5f8ff;
+  --chrome-200: #d8def0;
+  --chrome-300: #a8b0cc;
+  --chrome-400: #6b7393;
+  --chrome-500: #424b6e;
+
+  /* Brand — electric blue */
+  --signal-300: #93c5ff;
+  --signal-400: #5aa9ff;
+  --signal-500: #2e7eff;
+  --signal-600: #1c5fe8;
+  --signal-700: #1244a8;
+
+  /* Cyan — secondary glow */
+  --cyan-300: #67e8f9;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+
+  /* Status */
+  --warn-400: #ffb547;
+  --error-400: #ff6470;
+  --error-500: #f43f5e;
+  --good-400: #5eead4;
+
+  /* Glass */
+  --glass-fill: rgba(28, 36, 64, 0.55);
+  --glass-fill-hi: rgba(40, 50, 84, 0.65);
+  --glass-stroke: rgba(120, 160, 255, 0.18);
+  --glass-stroke-hi: rgba(120, 180, 255, 0.32);
+
+  /* Semantic */
+  --bg-page: var(--ink-900);
+  --bg-surface: var(--glass-fill);
+  --bg-surface-hi: var(--glass-fill-hi);
+
+  --fg-1: var(--chrome-100);
+  --fg-2: var(--chrome-200);
+  --fg-3: var(--chrome-300);
+  --fg-4: var(--chrome-400);
+  --fg-5: var(--chrome-500);
+
+  --fg-link: var(--signal-400);
+  --fg-link-hover: var(--cyan-300);
+  --fg-data: var(--cyan-400);
+  --fg-error: var(--error-400);
+
+  --brand: var(--signal-500);
+  --brand-hover: var(--signal-400);
+  --brand-press: var(--signal-600);
+
+  --border-subtle: var(--glass-stroke);
+  --border-strong: var(--glass-stroke-hi);
+  --focus-ring: var(--signal-400);
+
+  /* Glow / shadow */
+  --glow-blue: 0 0 24px rgba(46, 126, 255, 0.35), 0 0 1px rgba(46, 126, 255, 0.6);
+  --glow-blue-lg: 0 0 48px rgba(46, 126, 255, 0.45), 0 0 1px rgba(46, 126, 255, 0.7);
+  --glow-cyan: 0 0 22px rgba(34, 211, 238, 0.4), 0 0 1px rgba(34, 211, 238, 0.7);
+  --glow-card: 0 8px 40px rgba(8, 14, 36, 0.6), 0 0 0 1px var(--glass-stroke), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --glow-card-hi: 0 12px 60px rgba(46, 126, 255, 0.18), 0 0 0 1px var(--glass-stroke-hi), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* Grid background */
+  --grid-line: rgba(120, 160, 255, 0.06);
+  --grid-bg:
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    radial-gradient(circle at 50% 0%, rgba(46, 126, 255, 0.08), transparent 60%);
+
+  /* Motion */
+  --ease-default: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 140ms;
+  --duration-med: 220ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--bg-page);
+  --color-foreground: var(--fg-1);
+  --font-sans: var(--font-geist-sans), "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-page);
+  background-image: var(--grid-bg);
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Reusable v2 utility classes ---- */
+
+.ds-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--cyan-400);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.ds-glass {
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-stroke);
+  box-shadow: var(--glow-card);
+}
+
+.ds-glass-hover:hover {
+  border-color: var(--glass-stroke-hi);
+  box-shadow: var(--glow-card-hi);
+}
+
+.ds-btn-primary {
+  background: linear-gradient(180deg, var(--signal-400), var(--signal-500));
+  color: #fff;
+  font-weight: 500;
+  border: 0;
+  border-radius: 14px;
+  padding: 13px 22px;
+  font-size: 0.875rem;
+  box-shadow:
+    0 0 24px rgba(46, 126, 255, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(46, 126, 255, 0.5);
+  transition: all var(--duration-fast) var(--ease-default);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ds-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #5aa9ff, #4a91ff);
+  box-shadow:
+    0 0 32px rgba(46, 126, 255, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 0 1px rgba(90, 169, 255, 0.7);
+}
+.ds-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.ds-btn-chip {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--cyan-300);
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  transition: all var(--duration-fast) var(--ease-default);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ds-btn-chip:hover {
+  background: rgba(34, 211, 238, 0.22);
+  color: #a8f3ff;
+  border-color: rgba(34, 211, 238, 0.55);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.4);
+}
+
+.ds-btn-subtle {
+  background: transparent;
+  color: var(--chrome-300);
+  font-size: 0.875rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(120, 160, 255, 0.18);
+  transition: all var(--duration-fast) var(--ease-default);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ds-btn-subtle:hover {
+  color: var(--chrome-100);
+  border-color: rgba(120, 180, 255, 0.32);
+}
+
+.ds-input {
+  flex: 1;
+  background: var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  color: var(--chrome-100);
+  border: 1px solid var(--glass-stroke);
+  outline: 0;
+  border-radius: 14px;
+  padding: 13px 16px;
+  font-size: 0.875rem;
+  width: 100%;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+.ds-input::placeholder {
+  color: var(--chrome-400);
+}
+.ds-input:focus {
+  border-color: var(--signal-400);
+  box-shadow: 0 0 0 1px var(--signal-400), 0 0 24px rgba(46, 126, 255, 0.4);
+}
+
+@keyframes ds-pulse-dot {
+  0%, 100% { box-shadow: 0 0 10px var(--good-400); opacity: 1; }
+  50%      { box-shadow: 0 0 16px var(--good-400); opacity: 0.85; }
+}
+.ds-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--good-400);
+  box-shadow: 0 0 10px var(--good-400);
+  animation: ds-pulse-dot 2s ease-in-out infinite;
+  flex-shrink: 0;
 }

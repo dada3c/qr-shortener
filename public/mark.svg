@@ -1,0 +1,15 @@
+
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="dada3c relay node">
+  
+  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.35"></circle>
+  
+  <path d="M32 8 A24 24 0 0 1 56 32" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+  
+  <path d="M32 50 A18 18 0 0 1 14 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-opacity="0.7"></path>
+  
+  <path d="M14 44 L32 32 L50 20" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path>
+  
+  <path d="M50 20 L42 22 M50 20 L48 28" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"></path>
+  
+  <circle cx="32" cy="32" r="3" fill="currentColor"></circle>
+</svg>
